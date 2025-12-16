@@ -1,0 +1,26 @@
+[Rule]
+# Turrit 官网核心域名（含 www/无 www/多地区节点）
+DOMAIN-SUFFIX,turrit.app,PROXY,Turrit
+DOMAIN-SUFFIX,turrit.io,PROXY,Turrit
+DOMAIN-SUFFIX,turrit.org,PROXY,Turrit
+DOMAIN,turrit.com,PROXY,Turrit
+DOMAIN,www.turrit.com,PROXY,Turrit
+
+# Turrit 后台/API 接口（保障登录、同步、数据交互）
+DOMAIN-SUFFIX,api.turrit.app,PROXY,Turrit
+DOMAIN-SUFFIX,api.turrit.io,PROXY,Turrit
+DOMAIN-SUFFIX,backend.turrit.app,PROXY,Turrit
+DOMAIN-SUFFIX,sync.turrit.app,PROXY,Turrit
+
+# Turrit 资源加载节点（图片、插件、更新包）
+DOMAIN-SUFFIX,cdn.turrit.app,PROXY,Turrit
+DOMAIN-SUFFIX,static.turrit.app,PROXY,Turrit
+DOMAIN-SUFFIX,dl.turrit.app,PROXY,Turrit
+DOMAIN-SUFFIX,update.turrit.app,PROXY,Turrit
+
+# Turrit 第三方关联服务（保障功能完整性）
+DOMAIN-SUFFIX,turrit-cdn.com,PROXY,Turrit
+DOMAIN-SUFFIX,turrit-services.com,PROXY,Turrit
+
+# 默认规则（其余流量走本地/默认节点，可根据自身需求修改）
+MATCH,DIRECT
