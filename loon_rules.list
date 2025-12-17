@@ -1,12 +1,14 @@
-# ===== 本地 & 局域网直连 =====
+# ===== 本地 / 局域网直连（必须）=====
 DOMAIN-SUFFIX,local,DIRECT
 IP-CIDR,127.0.0.0/8,DIRECT
 IP-CIDR,10.0.0.0/8,DIRECT
 IP-CIDR,172.16.0.0/12,DIRECT
 IP-CIDR,192.168.0.0/16,DIRECT
 
-# ===== 中国直连 =====
-GEOIP,CN,DIRECT
+# ===== Apple 基础服务直连（可选，稳定性更好）=====
+DOMAIN-SUFFIX,apple.com,DIRECT
+DOMAIN-SUFFIX,icloud.com,DIRECT
+DOMAIN-SUFFIX,itunes.apple.com,DIRECT
 
-# ===== 其余全部走代理（香港优选）=====
-FINAL,🇭🇰 香港时延优选
+# ===== 其余全部走代理 =====
+FINAL,🚀 代理
