@@ -1,0 +1,368 @@
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns_remote",
+        "address": "https://1.1.1.1/dns-query",
+        "address_resolver": "dns_direct",
+        "detour": "proxy"
+      },
+      {
+        "tag": "dns_direct",
+        "address": "223.5.5.5",
+        "detour": "direct"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "dns_direct"
+      },
+      {
+        "geosite": "cn",
+        "server": "dns_direct"
+      }
+    ],
+    "final": "dns_remote"
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2080
+    },
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "mixed"
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": [
+        "auto",
+        "🇭🇰香港1",
+        "🇭🇰香港2",
+        "🇭🇰香港3",
+        "🇯🇵日本1",
+        "🇯🇵日本2",
+        "🇯🇵日本3",
+        "🇰🇷韩国1",
+        "🇰🇷韩国2",
+        "🇰🇷韩国3",
+        "🇰🇷韩国4",
+        "🇰🇷韩国5",
+        "🇰🇷韩国6",
+        "🇺🇸美国1",
+        "🇺🇸美国2",
+        "🇺🇸美国3",
+        "🇺🇸美国4",
+        "🇺🇸美国5",
+        "🇺🇸美国6",
+        "🇺🇸美国7",
+        "🇺🇸美国8",
+        "🇺🇸美国9",
+        "🇸🇬新加坡",
+        "🇨🇳 台湾",
+        "🇲🇾马来西亚",
+        "🇬🇧英国",
+        "🇹🇭泰国",
+        "🇵🇭菲律宾",
+        "🇮🇩印度尼西亚"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇭🇰香港1",
+        "🇭🇰香港2",
+        "🇭🇰香港3",
+        "🇯🇵日本1",
+        "🇯🇵日本2",
+        "🇯🇵日本3",
+        "🇰🇷韩国1",
+        "🇰🇷韩国2",
+        "🇰🇷韩国3",
+        "🇰🇷韩国4",
+        "🇰🇷韩国5",
+        "🇰🇷韩国6",
+        "🇺🇸美国1",
+        "🇺🇸美国2",
+        "🇺🇸美国3",
+        "🇺🇸美国4",
+        "🇺🇸美国5",
+        "🇺🇸美国6",
+        "🇺🇸美国7",
+        "🇺🇸美国8",
+        "🇺🇸美国9",
+        "🇸🇬新加坡",
+        "🇨🇳 台湾",
+        "🇲🇾马来西亚",
+        "🇬🇧英国",
+        "🇹🇭泰国",
+        "🇵🇭菲律宾",
+        "🇮🇩印度尼西亚"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 50
+    },
+    {
+      "type": "trojan",
+      "tag": "🇭🇰香港1",
+      "server": "hk05051853.tmdsb.org",
+      "server_port": 2738,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "hk05051853.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇭🇰香港2",
+      "server": "hk05051851.tmdsb.org",
+      "server_port": 1340,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "hk05051851.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇭🇰香港3",
+      "server": "hk05051849.tmdsb.org",
+      "server_port": 2071,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "hk05051849.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵日本1",
+      "server": "jp04241708.tmdsb.org",
+      "server_port": 1579,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "jp04241708.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵日本2",
+      "server": "jp04261300.tmdsb.org",
+      "server_port": 2655,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "jp04261300.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵日本3",
+      "server": "jp04241710.tmdsb.org",
+      "server_port": 3100,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "jp04241710.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷韩国1",
+      "server": "kr04021338.tmdsb.org",
+      "server_port": 1864,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "kr04021338.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷韩国2",
+      "server": "kr04212337.tmdsb.org",
+      "server_port": 1738,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "kr04212337.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷韩国3",
+      "server": "kr04231525.tmdsb.org",
+      "server_port": 1622,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "kr04231525.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷韩国4",
+      "server": "kr04212339.tmdsb.org",
+      "server_port": 2648,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "kr04212339.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷韩国5",
+      "server": "kr04021333.tmdsb.org",
+      "server_port": 3711,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "kr04021333.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷韩国6",
+      "server": "kr04212341.tmdsb.org",
+      "server_port": 2691,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "kr04212341.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇺🇸美国1",
+      "server": "us03180923.tmdsb.org",
+      "server_port": 3411,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "us03180923.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇺🇸美国2",
+      "server": "us04021322.tmdsb.org",
+      "server_port": 2888,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "us04021322.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇺🇸美国3",
+      "server": "us04051603.tmdsb.org",
+      "server_port": 2505,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "us04051603.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇺🇸美国4",
+      "server": "us04172204.tmdsb.org",
+      "server_port": 2962,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "us04172204.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇺🇸美国5",
+      "server": "us01301038.tmdsb.org",
+      "server_port": 1133,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "us01301038.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇺🇸美国6",
+      "server": "us06121609.tmdsb.org",
+      "server_port": 1321,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "us06121609.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇺🇸美国7",
+      "server": "us04031316.tmdsb.org",
+      "server_port": 3480,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "us04031316.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇺🇸美国8",
+      "server": "us04011240.tmdsb.org",
+      "server_port": 3038,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "us04011240.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇺🇸美国9",
+      "server": "us01211054.tmdsb.org",
+      "server_port": 3346,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "us01211054.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇸🇬新加坡",
+      "server": "sgp06031246.tmdsb.org",
+      "server_port": 2496,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "sgp06031246.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇨🇳 台湾",
+      "server": "tw060401.tmdsb.org",
+      "server_port": 1321,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "tw060401.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇲🇾马来西亚",
+      "server": "mlxy06031244.tmdsb.org",
+      "server_port": 1177,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "mlxy06031244.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧英国",
+      "server": "uk06182157.tmdsb.org",
+      "server_port": 1675,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "uk06182157.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇹🇭泰国",
+      "server": "tld06090953.tmdsb.org",
+      "server_port": 3752,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "tld06090953.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇭菲律宾",
+      "server": "flb06181447.tmdsb.org",
+      "server_port": 2398,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "flb06181447.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇮🇩印度尼西亚",
+      "server": "ine07011438.tmdsb.org",
+      "server_port": 3367,
+      "password": "3632736327",
+      "tls": { "enabled": true, "server_name": "ine07011438.tmdsb.org", "utls": { "enabled": true, "fingerprint": "chrome" } }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      { "action": "sniff" },
+      { "protocol": "dns", "action": "hijack-dns" },
+      { "ip_is_private": true, "outbound": "direct" },
+      { "geosite": "category-ads-all", "outbound": "block" },
+      { "geosite": "cn", "outbound": "direct" },
+      { "geoip": "cn", "outbound": "direct" }
+    ],
+    "final": "proxy",
+    "auto_detect_interface": true
+  }
+}
