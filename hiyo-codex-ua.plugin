@@ -1,10 +1,10 @@
 #!name=hiyo-codex-ua
-#!desc=伪装ClaudeCode UA，适配minis调用free.hiyo.top & codexfree.xiaotuxp.com
+#!desc=伪装OpenCode UA，适配minis调用free.hiyo.top & codexfree.xiaotuxp.com
 #!author=me
-#!version=1.1
+#!version=1.2
 #!system=iOS
 #!mitm=free.hiyo.top,codexfree.xiaotuxp.com
 
 [Rewrite]
-^https:\/\/free\.hiyo\.top\/.* header User-Agent "ClaudeCode/0.1.40"
-^https:\/\/codexfree\.xiaotuxp\.com\/.* header User-Agent "ClaudeCode/0.1.40"
+^https:\/\/free\.hiyo\.top\/.* header User-Agent "OpenCode/1.0"
+^https:\/\/codexfree\.xiaotuxp\.com\/.* header User-Agent "OpenCode/1.0"
