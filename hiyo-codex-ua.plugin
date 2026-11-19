@@ -1,10 +1,10 @@
 #!name=hiyo-codex-ua
-#!desc=伪装deepseek-harness UA，适配minis调用free.hiyo.top & codexfree.xiaotuxp.com
+#!desc=伪装deepseek-harness UA，适配minis调用free.hiyo.top
 #!author=me
-#!version=1.3
+#!version=1.5
 #!system=iOS
 #!mitm=free.hiyo.top,codexfree.xiaotuxp.com
 
 [Rewrite]
-^https:\/\/free\.hiyo\.top\/.* header User-Agent "deepseek-harness"
-^https:\/\/codexfree\.xiaotuxp\.com\/.* header User-Agent "deepseek-harness"
+^https:\/\/free\.hiyo\.top\/.* request-header User-Agent "deepseek-harness"
+^https:\/\/codexfree\.xiaotuxp\.com\/.* request-header User-Agent "deepseek-harness"
