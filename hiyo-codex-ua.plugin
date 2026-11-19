@@ -1,0 +1,10 @@
+#!name=hiyo-codex-ua
+#!desc=伪装Codex UA，适配minis调用free.hiyo.top & codexfree.xiaotuxp.com
+#!author=me
+#!version=1.0
+#!system=iOS
+#!mitm=free.hiyo.top,codexfree.xiaotuxp.com
+
+[Rewrite]
+^https:\/\/free\.hiyo\.top\/.* header User-Agent "codex/1.0"
+^https:\/\/codexfree\.xiaotuxp\.com\/.* header User-Agent "codex/1.0"
